@@ -1,6 +1,6 @@
 import type { OpenGraph } from '$app/constants';
-import type { Book, Chapter, Page } from '$app/routes/h/book/content';
-import { content } from '$app/routes/h/book/content';
+import type { Book, Chapter, Content, Page } from '$app/content';
+import { content } from '$app/content';
 import { ASSET_VERSION } from '../../constants';
 
 type EnsureTrailingSlash<T extends string> = T extends `${infer P}/` ? `${P}/` : `${T}/`;
@@ -96,7 +96,8 @@ export const getContent = (url: URL) => {
   const pageNumber = Number(pageString) || null;
   const personName = person || null;
   const bookIndex = bookNumber !== null ? bookNumber - 1 : null;
-  const book = (bookIndex !== null ? content.books[bookIndex] : null) ?? null;
+  const book =
+    (personName !== null && bookIndex !== null ? content[personName as keyof Content]?.books[bookIndex] : null) ?? null;
   const chapterIndex = chapterNumber !== null ? chapterNumber - 1 : null;
   const chapters = book !== null ? book.chapters : null;
   const chapter = (chapters !== null && chapterIndex !== null ? chapters[chapterIndex] : null) ?? null;
