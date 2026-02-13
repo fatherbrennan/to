@@ -60,7 +60,7 @@ export const PageTouchNav = component$<TouchNavProps>(({ url }) => {
       </div>
 
       <div class='size-full flex flex-col gap-2 p-2 pt-footer'>
-        <div class='bg-[#d9e7d3] mx-auto my-auto p-8 w-9/12 h-8/12 flex flex-col gap-2 justify-center items-center rounded shadow-xs text-sm sm:text-base'>
+        <div class='bg-[#d9e7d3] mx-auto my-auto p-8 w-9/12 h-8/12 flex flex-col gap-2 justify-center items-center rounded shadow-xs text-center text-sm sm:text-base'>
           <Slot />
 
           {content.page?.content.map((content, index) => {
