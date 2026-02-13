@@ -1,0 +1,1 @@
+import{I as e}from"./q-BJg_Cf3y.js";const r=()=>e("footer",null,{class:"text-center h-footer flex flex-col justify-center items-center"},e("a",null,{class:"text-xs sm:text-base",href:"https://github.com/fatherbrennan/to",rel:"noopener noreferrer",target:"_blank"},"from b.",3,null),3,"Ve_0");export{r as s_4CdU7FNE46E};
