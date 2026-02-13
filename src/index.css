@@ -9,8 +9,8 @@
   --spacing-safe-b: var(--safe-area-inset-bottom);
   --spacing-screen-h-full: 100dvh;
   --spacing-screen-w-full: 100dvw;
-  --spacing-footer: 1rem;
-  --spacing-header: 1.5rem;
+  --spacing-footer: 1.5rem;
+  --spacing-header: 0;
   --spacing-safe-footer: calc(
     var(--spacing-footer) +
     var(--safe-area-inset-bottom)
@@ -35,4 +35,9 @@
 
 :root {
   font-size: 14px;
+}
+
+html,
+body {
+  @apply font-mono overscroll-none;
 }

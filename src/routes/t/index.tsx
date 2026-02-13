@@ -1,3 +1,4 @@
+import Rose from '$app/assets/rose.svg?jsx';
 import { OpenGraph } from '$app/constants';
 import { getToHead } from '$app/utils/title';
 import { openGraphMeta } from '$app/utils/url';
@@ -18,7 +19,7 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <div>
-      <h1>chapter</h1>
+      <Rose />
     </div>
   );
 });
