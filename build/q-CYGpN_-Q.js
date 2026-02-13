@@ -1,1 +1,0 @@
-import{I as e}from"./q-DbgVpdW5.js";const n=()=>e("footer",null,null,e("a",null,{href:"https://github.com/fatherbrennan/beelep",rel:"noopener noreferrer",target:"_blank"},"fatherbrennan",3,null),3,"Ve_0");export{n as s_4CdU7FNE46E};

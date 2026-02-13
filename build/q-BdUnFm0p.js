@@ -1,0 +1,1 @@
+import{v as t}from"./q-DK6sXgm-.js";import{x as i}from"./q-DK6sXgm-.js";import{a as r}from"./q-BQR_EnFs.js";const c=({track:a})=>{const[o]=t();window.localStorage.setItem(r,JSON.stringify(o))};export{i as _hW,c as s_JyRnyL0W7Zk};

@@ -1,0 +1,1 @@
+import{I as e}from"./q-DK6sXgm-.js";const t=()=>e("footer",null,{class:"text-center h-footer"},e("a",null,{class:"text-xs",href:"https://github.com/fatherbrennan/beelep",rel:"noopener noreferrer",target:"_blank"},"from b.",3,null),3,"Ve_0");export{t as s_4CdU7FNE46E};
