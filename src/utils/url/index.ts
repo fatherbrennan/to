@@ -1,15 +1,18 @@
 import type { OpenGraph } from '$app/constants';
 import { ASSET_VERSION } from '../../constants';
-import { sortAscString } from '../sort';
 
 type EnsureTrailingSlash<T extends string> = T extends `${infer P}/` ? `${P}/` : `${T}/`;
 type HasTrailingQuestionMark<T extends string> = T extends `${string}?` ? true : false;
 type HasTrailingSlash<T extends string> = T extends `${string}/` ? true : false;
 type HasLeadingSlash<T extends string> = T extends `/${string}` ? true : false;
 type Versioned<TPath extends string> = `${TPath}?v=${typeof ASSET_VERSION}`;
-type QueryFnParamValue = string | number | boolean | undefined;
-type QueryFnParam = Record<string, QueryFnParamValue>;
-type QueryKeyValue = { [key: string]: string | undefined };
+/** `number` should always be `> 0`. */
+export type StoriesParams = {
+  bookNumber: number | null;
+  chapterNumber: number | null;
+  pageNumber: number | null;
+  personName: string | null;
+};
 
 export const hasTrailingQuestionMark = <T extends string>(path: T) => {
   return (path[path.length - 1] === '?') as HasTrailingQuestionMark<T>;
@@ -67,34 +70,21 @@ export const openGraphMeta = <TProperty extends (typeof OpenGraph)[keyof typeof 
   property: `og:${property}` as const,
 });
 
-/** url encode value. */
-export const encodeSubstring = (value: NonNullable<QueryFnParamValue>): string => {
-  return encodeURIComponent(value);
-};
+/**
+ * `/to/<person>/book/1/`
+ * `/to/<person>/book/1/chapter/1/`
+ * `/to/<person>/book/1/chapter/1/page/1/`
+ */
+export const storiesParams = (url: URL) => {
+  const { pathname } = url;
 
-/** generate a url query string from an object where the key is the query parameter and the value is the query value. */
-export const query = <T extends QueryFnParam>(params: T): string => {
-  // by sorting, we ensure these requests are cached in the same order.
-  const keys = Object.keys(params).sort(sortAscString);
+  const [_match, person, book, _, chapter, __, page] =
+    withTrailingSlash(pathname).match(/^.{0,442}\/to\/(.+)\/book\/(\d+)\/(chapter\/(\d+)\/(page\/(\d+)\/)?)?$/m) ?? [];
 
-  if (keys.length === 0) {
-    return '';
-  }
-
-  let q = '?';
-
-  for (let i = 0; i < keys.length; i++) {
-    const key: keyof T = keys[i];
-    const value = params[key];
-    if (value !== undefined) {
-      q += `${String(key)}=${encodeSubstring(value)}&`;
-    }
-  }
-
-  return q.slice(0, -1);
-};
-
-/** return a key value object from a url query string. */
-export const queryKeyValue = <T extends QueryKeyValue>(searchParams: URLSearchParams) => {
-  return Object.fromEntries(searchParams) as T;
+  return {
+    bookNumber: Number(book) || null,
+    chapterNumber: Number(chapter) || null,
+    pageNumber: Number(page) || null,
+    personName: person || null,
+  } satisfies StoriesParams;
 };
