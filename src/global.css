@@ -1,0 +1,35 @@
+/** biome-ignore-all lint/suspicious/noUnknownAtRules: tailwindcss @rules. */
+/** tailwindcss documentation at https://tailwindcss.com. */
+@import 'tailwindcss';
+
+@theme {
+  --safe-area-inset-top: env(safe-area-inset-top, 3rem);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 2rem);
+  --spacing-safe-t: var(--safe-area-inset-top);
+  --spacing-safe-b: var(--safe-area-inset-bottom);
+  --spacing-screen-h-full: 100dvh;
+  --spacing-screen-w-full: 100dvw;
+  --spacing-footer: 1.5rem;
+  --spacing-header: 2rem;
+  --spacing-safe-footer: calc(
+    var(--spacing-footer) +
+    var(--safe-area-inset-bottom)
+  );
+  --spacing-safe-header: calc(
+    var(--spacing-header) +
+    var(--safe-area-inset-top)
+  );
+  /* y-padding on <main> element. */
+  --spacing-main-y: 0.25rem;
+  --spacing-main: calc(
+    var(--spacing-screen-h-full, 100vh) -
+    var(--spacing-safe-header) -
+    var(--spacing-safe-footer) -
+    var(--spacing-main-y) -
+    var(--spacing-main-y)
+  );
+}
+
+:root {
+  font-size: 16px;
+}

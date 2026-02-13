@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "args": ["--mode", "ssr", "--force"],
+      "cwd": "${workspaceFolder}",
+      "name": "dev.debug",
+      "program": "${workspaceFolder}/node_modules/vite/bin/vite.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ],
+  // use IntelliSense to learn about possible attributes.
+  // hover to view descriptions of existing attributes.
+  // for more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0"
+}

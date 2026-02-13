@@ -1,0 +1,103 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedAttributes": "on",
+        "useSortedKeys": "on",
+        "useSortedProperties": "on"
+      }
+    },
+    "enabled": true
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "lineWidth": 80,
+      "quoteStyle": "single"
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "files": {
+    "includes": [
+      "**/*.{ts,tsx,json,jsonc,md,css,html}",
+      "!dist",
+      "!server",
+      "!temp"
+    ]
+  },
+  "formatter": {
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "enabled": true,
+    "expand": "auto",
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "useEditorconfig": false
+  },
+  "html": {
+    "formatter": {
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "enabled": true,
+      "indentScriptAndStyle": false,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "lineWidth": 80,
+      "selfCloseVoidElements": "always",
+      "whitespaceSensitivity": "css"
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "enabled": true,
+      "expand": "auto",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "jsxQuoteStyle": "single",
+      "lineEnding": "lf",
+      "lineWidth": 120,
+      "operatorLinebreak": "before",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    },
+    "jsxRuntime": "reactClassic"
+  },
+  "json": {
+    "formatter": {
+      "bracketSpacing": true,
+      "enabled": true,
+      "expand": "auto",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "lineWidth": 80,
+      "trailingCommas": "none"
+    }
+  },
+  "root": true,
+  "vcs": {
+    "clientKind": "git",
+    "defaultBranch": "master",
+    "enabled": true,
+    "root": ".",
+    "useIgnoreFile": false
+  }
+}

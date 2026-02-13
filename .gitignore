@@ -1,0 +1,11 @@
+.cache
+.DS_Store
+.temp
+*.local
+*.log
+dist
+logs
+node_modules
+server
+temp
+tsconfig.tsbuildinfo
