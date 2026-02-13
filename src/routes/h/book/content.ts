@@ -19,7 +19,10 @@ export const content = {
     {
       chapters: [
         {
-          pages: [{ content: [], title: 'Page 1' }],
+          pages: [
+            { content: [], title: 'Page 1' },
+            { content: [], title: 'Page 2' },
+          ],
           title: 'Chapter 1',
         },
       ],

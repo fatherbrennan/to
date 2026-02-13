@@ -4,7 +4,7 @@ import { getToHead } from '$app/utils/title';
 import { openGraphMeta, storiesParams } from '$app/utils/url';
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { useLocation } from '@builder.io/qwik-city';
+import { Link, useLocation } from '@builder.io/qwik-city';
 
 const { description, title } = getToHead('h');
 
@@ -31,7 +31,7 @@ export default component$(() => {
 
   return (
     <div>
-      <h1>book</h1>
+      <h1>page</h1>
       <h1>{personName}</h1>
       <hr />
       <pre>{JSON.stringify(book, null, 2)}</pre>
@@ -40,7 +40,21 @@ export default component$(() => {
       <hr />
       <pre>{JSON.stringify(page, null, 2)}</pre>
       <hr />
-      <pre></pre>
+
+      {pageNumber !== null && pageIndex !== null && pages && (
+        <div>
+          {pageIndex > 0 && pageNumber <= pages.length && (
+            <Link href={`/to/${personName}/book/${bookNumber}/chapter/${chapterNumber}/page/${pageNumber - 1}`}>
+              previous
+            </Link>
+          )}
+          {pageIndex >= 0 && pageNumber < pages.length && (
+            <Link href={`/to/${personName}/book/${bookNumber}/chapter/${chapterNumber}/page/${pageNumber + 1}`}>
+              next
+            </Link>
+          )}
+        </div>
+      )}
     </div>
   );
 });
