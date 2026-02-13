@@ -5,8 +5,8 @@ import {
   hasTrailingQuestionMark,
   hasTrailingSlash,
   openGraphMeta,
-  queryKeyValue,
   simpleJoin,
+  storiesParams,
   v,
   withTrailingSlash,
 } from '.';
@@ -102,16 +102,39 @@ describe('url utilities', async () => {
     expect(v('/hello/there.png')).toBe(`/hello/there.png?v=${assetVersion}`);
   });
 
-  test('queryKeyValue', async () => {
-    expect(queryKeyValue(new URLSearchParams('?id=123'))).toEqual({ id: '123' });
-  });
-
   test('openGraphMeta', async () => {
     expect(openGraphMeta(OpenGraph.Type, 'image/png')).toEqual({ content: 'image/png', property: 'og:type' });
     expect(openGraphMeta(OpenGraph.Title, 'Hello World!')).toEqual({ content: 'Hello World!', property: 'og:title' });
     expect(openGraphMeta('description', 'Goodbye World!')).toEqual({
       content: 'Goodbye World!',
       property: 'og:description',
+    });
+  });
+
+  test('storiesParams', async () => {
+    expect(storiesParams(new URL('https://example.com/to/fatherbrennan/book/1/chapter/2/page/3'))).toEqual({
+      bookNumber: 1,
+      chapterNumber: 2,
+      pageNumber: 3,
+      personName: 'fatherbrennan',
+    });
+    expect(storiesParams(new URL('https://example.com/to/fatherbrennan/book/4/chapter/5'))).toEqual({
+      bookNumber: 4,
+      chapterNumber: 5,
+      pageNumber: null,
+      personName: 'fatherbrennan',
+    });
+    expect(storiesParams(new URL('https://example.com/to/fatherbrennan/book/6'))).toEqual({
+      bookNumber: 6,
+      chapterNumber: null,
+      pageNumber: null,
+      personName: 'fatherbrennan',
+    });
+    expect(storiesParams(new URL('https://example.com/to/fatherbrennan'))).toEqual({
+      bookNumber: null,
+      chapterNumber: null,
+      pageNumber: null,
+      personName: null,
     });
   });
 });

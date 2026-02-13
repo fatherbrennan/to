@@ -1,11 +1,11 @@
 import Rose from '$app/assets/rose.svg?jsx';
-import { APP_TITLE, OpenGraph } from '$app/constants';
+import { OpenGraph } from '$app/constants';
+import { getToHead } from '$app/utils/title';
 import { openGraphMeta } from '$app/utils/url';
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
-const title = APP_TITLE;
-const description = 'TODO: Needs a description';
+const { description, title } = getToHead('h');
 
 export const head: DocumentHead = {
   meta: [
