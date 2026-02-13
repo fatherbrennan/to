@@ -1,1 +1,0 @@
-import{A as o,c as t,R as a,s as c}from"./q-BJg_Cf3y.js";import{P as n}from"./q-D-LYS-ds.js";import{a as u}from"./q-ByBQlWFA.js";const m=()=>{const r=u();return o(n,{get url(){return r.url},children:o(c,null,3,"Ic_0"),[t]:{url:a(s=>s.url,[r])}},1,"Ic_1")};export{m as s_qxXgb53iBc8};
