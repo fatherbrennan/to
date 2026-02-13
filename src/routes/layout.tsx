@@ -19,13 +19,15 @@ export default component$(() => {
   return (
     <AppContextProvider>
       <LocalStorageContextProvider>
-        <Header />
+        <div class='h-screen-h-full flex flex-col bg-[#92ae87]'>
+          <Header />
 
-        <Main>
-          <Slot />
-        </Main>
+          <Main>
+            <Slot />
+          </Main>
 
-        <Footer />
+          <Footer />
+        </div>
       </LocalStorageContextProvider>
     </AppContextProvider>
   );

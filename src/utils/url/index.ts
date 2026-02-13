@@ -1,4 +1,6 @@
 import type { OpenGraph } from '$app/constants';
+import type { Book, Chapter, Page } from '$app/routes/h/book/content';
+import { content } from '$app/routes/h/book/content';
 import { ASSET_VERSION } from '../../constants';
 
 type EnsureTrailingSlash<T extends string> = T extends `${infer P}/` ? `${P}/` : `${T}/`;
@@ -7,10 +9,18 @@ type HasTrailingSlash<T extends string> = T extends `${string}/` ? true : false;
 type HasLeadingSlash<T extends string> = T extends `/${string}` ? true : false;
 type Versioned<TPath extends string> = `${TPath}?v=${typeof ASSET_VERSION}`;
 /** `number` should always be `> 0`. */
-export type StoriesParams = {
+export type GetContent = {
+  book: Book | null;
+  bookIndex: number | null;
   bookNumber: number | null;
+  chapter: Chapter | null;
+  chapterIndex: number | null;
   chapterNumber: number | null;
+  chapters: Chapter[] | null;
+  page: Page | null;
+  pageIndex: number | null;
   pageNumber: number | null;
+  pages: Page[] | null;
   personName: string | null;
 };
 
@@ -75,16 +85,37 @@ export const openGraphMeta = <TProperty extends (typeof OpenGraph)[keyof typeof 
  * `/to/<person>/book/1/chapter/1/`
  * `/to/<person>/book/1/chapter/1/page/1/`
  */
-export const storiesParams = (url: URL) => {
+export const getContent = (url: URL) => {
   const { pathname } = url;
 
-  const [_match, person, book, _, chapter, __, page] =
+  const [_match, person, bookString, _, chapterString, __, pageString] =
     withTrailingSlash(pathname).match(/^.{0,442}\/to\/(.+)\/book\/(\d+)\/(chapter\/(\d+)\/(page\/(\d+)\/)?)?$/m) ?? [];
 
+  const bookNumber = Number(bookString) || null;
+  const chapterNumber = Number(chapterString) || null;
+  const pageNumber = Number(pageString) || null;
+  const personName = person || null;
+  const bookIndex = bookNumber !== null ? bookNumber - 1 : null;
+  const book = (bookIndex !== null ? content.books[bookIndex] : null) ?? null;
+  const chapterIndex = chapterNumber !== null ? chapterNumber - 1 : null;
+  const chapters = book !== null ? book.chapters : null;
+  const chapter = (chapters !== null && chapterIndex !== null ? chapters[chapterIndex] : null) ?? null;
+  const pageIndex = pageNumber !== null ? pageNumber - 1 : null;
+  const pages = chapter !== null ? chapter.pages : null;
+  const page = (pages !== null && pageIndex !== null ? pages[pageIndex] : null) ?? null;
+
   return {
-    bookNumber: Number(book) || null,
-    chapterNumber: Number(chapter) || null,
-    pageNumber: Number(page) || null,
-    personName: person || null,
-  } satisfies StoriesParams;
+    book,
+    bookIndex,
+    bookNumber,
+    chapter,
+    chapterIndex,
+    chapterNumber,
+    chapters,
+    page,
+    pageIndex,
+    pageNumber,
+    pages,
+    personName,
+  } satisfies GetContent;
 };

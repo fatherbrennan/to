@@ -35,7 +35,7 @@ export const Root = component$(() => {
 
         <RouterHead />
       </head>
-      <body class='flex flex-col font-mono' lang='en'>
+      <body lang='en'>
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>

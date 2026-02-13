@@ -1,4 +1,5 @@
 import { SCREEN_SMALL_WIDTH } from '$app/constants';
+import type { GetContent } from '$app/utils/url';
 import {
   $,
   component$,
@@ -16,12 +17,27 @@ export type AppContext = {
   isLocalStorageRead: boolean;
   /** `true` if screen width is less than `SCREEN_SMALL_WIDTH`. @default true */
   isSmallDisplay: boolean;
+  content: GetContent;
 };
 
-export const appContextId = createContextId<AppContext>('beelep.context.app');
+export const appContextId = createContextId<AppContext>('to.context.app');
 
 export const AppContextProvider = component$(() => {
   const store = useStore<AppContext>({
+    content: {
+      book: null,
+      bookIndex: null,
+      bookNumber: null,
+      chapter: null,
+      chapterIndex: null,
+      chapterNumber: null,
+      chapters: null,
+      page: null,
+      pageIndex: null,
+      pageNumber: null,
+      pages: null,
+      personName: null,
+    },
     isLocalStorageRead: false,
     isSmallDisplay: true,
   });
@@ -36,7 +52,6 @@ export const AppContextProvider = component$(() => {
   useContextProvider(appContextId, store);
 
   // show eruda devtools in mobile when in development.
-  // TODO: ensure that this is a build time condition.
   if (isDev) {
     // biome-ignore lint/correctness/noQwikUseVisibleTask: eruda requires access to the dom.
     useVisibleTask$(async () => {
