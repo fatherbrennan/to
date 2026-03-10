@@ -1,5 +1,0 @@
-import { component$ } from '@builder.io/qwik';
-
-export const Header = component$(() => {
-  return <header class='h-header'></header>;
-});

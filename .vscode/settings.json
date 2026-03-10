@@ -26,16 +26,7 @@
   "biome.configurationPath": "../biome.json",
   "biome.enabled": true,
   "biome.requireConfiguration": true,
-  "cSpell.words": [
-    "bunx",
-    "fatherbrennan",
-    "hexa",
-    "hintrc",
-    "qwik",
-    "qwikdev",
-    "qwikest",
-    "vali"
-  ],
+  "cSpell.words": ["debouncer", "fatherbrennan", "superforms"],
   "css.lint.unknownAtRules": "ignore",
   "editor.autoClosingBrackets": "languageDefined",
   "editor.autoClosingQuotes": "languageDefined",

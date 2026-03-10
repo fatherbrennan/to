@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "background_color": "TODO: Add color. E.g. #f1f0e4.",
+  "description": "the home of beelep.",
+  "devtools_page": true,
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "icons": [
+    {
+      "purpose": "any",
+      "sizes": "16x16",
+      "src": "/favicon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "purpose": "any",
+      "sizes": "256x256",
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
+      "purpose": "any",
+      "sizes": "16x16",
+      "src": "/icons/16.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "20x20",
+      "src": "/icons/20.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "29x29",
+      "src": "/icons/29.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "32x32",
+      "src": "/icons/32.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "40x40",
+      "src": "/icons/40.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "44x44",
+      "src": "/icons/44.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "48x48",
+      "src": "/icons/48.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "50x50",
+      "src": "/icons/50.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "57x57",
+      "src": "/icons/57.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "58x58",
+      "src": "/icons/58.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "60x60",
+      "src": "/icons/60.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "64x64",
+      "src": "/icons/64.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "71x71",
+      "src": "/icons/71.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "72x72",
+      "src": "/icons/72.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "76x76",
+      "src": "/icons/76.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "80x80",
+      "src": "/icons/80.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "87x87",
+      "src": "/icons/87.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "96x96",
+      "src": "/icons/96.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "100x100",
+      "src": "/icons/100.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "114x114",
+      "src": "/icons/114.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "120x120",
+      "src": "/icons/120.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "128x128",
+      "src": "/icons/128.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "144x144",
+      "src": "/icons/144.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "150x150",
+      "src": "/icons/150.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "152x152",
+      "src": "/icons/152.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "167x167",
+      "src": "/icons/167.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "180x180",
+      "src": "/icons/180.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "192x192",
+      "src": "/icons/192.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "256x256",
+      "src": "/icons/256.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "310x150",
+      "src": "/icons/310x150.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "310x310",
+      "src": "/icons/310.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/icons/512.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "620x300",
+      "src": "/icons/620x300.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "1024x1024",
+      "src": "/icons/1024.png",
+      "type": "image/png"
+    }
+  ],
+  "id": "beelep",
+  "name": "beelep",
+  "orientation": "natural",
+  "short_name": "beelep",
+  "start_url": "/",
+  "theme_color": "TODO: Add color. E.g. #f1f0e4."
+}

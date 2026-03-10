@@ -1,11 +1,16 @@
+# build
+build
+
+# development and cache
+.bun
 .cache
 .DS_Store
+.env
+.svelte-kit
 .temp
 *.local
 *.log
-dist
 logs
 node_modules
-server
 temp
 tsconfig.tsbuildinfo

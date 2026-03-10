@@ -1,0 +1,93 @@
+import { describe, expect, test } from 'bun:test';
+import {
+  hasLeadingSlash,
+  hasTrailingQuestionMark,
+  hasTrailingSlash,
+  queryKeyValue,
+  simpleJoin,
+  withTrailingSlash,
+} from '.';
+
+describe('url utilities', async () => {
+  test('hasTrailingQuestionMark', async () => {
+    expect(hasTrailingQuestionMark('hi')).toBe(false);
+    expect(hasTrailingQuestionMark('hi?')).toBe(true);
+    expect(hasTrailingQuestionMark('hi/there')).toBe(false);
+    expect(hasTrailingQuestionMark('hi/there?')).toBe(true);
+    expect(hasTrailingQuestionMark('hi/there/?')).toBe(true);
+    expect(hasTrailingQuestionMark('?hi/there/')).toBe(false);
+    expect(hasTrailingQuestionMark('?hi/there/?')).toBe(true);
+    expect(hasTrailingQuestionMark('hi/there/?/')).toBe(false);
+    expect(hasTrailingQuestionMark('hi/there/?id=')).toBe(false);
+    expect(hasTrailingQuestionMark('hi/there/?id=123')).toBe(false);
+  });
+
+  test('hasTrailingSlash', async () => {
+    expect(hasTrailingSlash('hi')).toBe(false);
+    expect(hasTrailingSlash('hi?')).toBe(false);
+    expect(hasTrailingSlash('hi/there')).toBe(false);
+    expect(hasTrailingSlash('hi/there?')).toBe(false);
+    expect(hasTrailingSlash('hi/there/?')).toBe(false);
+    expect(hasTrailingSlash('?hi/there/')).toBe(true);
+    expect(hasTrailingSlash('?hi/there/?')).toBe(false);
+    expect(hasTrailingSlash('hi/there/?/')).toBe(true);
+    expect(hasTrailingSlash('hi/there/?id=')).toBe(false);
+    expect(hasTrailingSlash('hi/there/?id=123')).toBe(false);
+  });
+
+  test('hasLeadingSlash', async () => {
+    expect(hasLeadingSlash('hi')).toBe(false);
+    expect(hasLeadingSlash('hi?')).toBe(false);
+    expect(hasLeadingSlash('hi/there')).toBe(false);
+    expect(hasLeadingSlash('hi/there?')).toBe(false);
+    expect(hasLeadingSlash('hi/there/?')).toBe(false);
+    expect(hasLeadingSlash('?hi/there/')).toBe(false);
+    expect(hasLeadingSlash('?hi/there/?')).toBe(false);
+    expect(hasLeadingSlash('hi/there/?/')).toBe(false);
+    expect(hasLeadingSlash('hi/there/?id=')).toBe(false);
+    expect(hasLeadingSlash('hi/there/?id=123')).toBe(false);
+    expect(hasLeadingSlash('/hi')).toBe(true);
+    expect(hasLeadingSlash('/hi?')).toBe(true);
+    expect(hasLeadingSlash('/hi/there')).toBe(true);
+    expect(hasLeadingSlash('/hi/there?')).toBe(true);
+    expect(hasLeadingSlash('/hi/there/?')).toBe(true);
+    expect(hasLeadingSlash('/?hi/there/')).toBe(true);
+    expect(hasLeadingSlash('/?hi/there/?')).toBe(true);
+    expect(hasLeadingSlash('/hi/there/?/')).toBe(true);
+    expect(hasLeadingSlash('/hi/there/?id=')).toBe(true);
+    expect(hasLeadingSlash('/hi/there/?id=123')).toBe(true);
+  });
+
+  test('withTrailingSlash', async () => {
+    expect(withTrailingSlash('')).toBe('/');
+    expect(withTrailingSlash('/')).toBe('/');
+    expect(withTrailingSlash('hi')).toBe('hi/');
+    expect(withTrailingSlash('hi/')).toBe('hi/');
+    expect(withTrailingSlash('hi/there')).toBe('hi/there/');
+    expect(withTrailingSlash('hi/there/')).toBe('hi/there/');
+    expect(withTrailingSlash('hi/there/123')).toBe('hi/there/123/');
+    expect(withTrailingSlash('hi/there/123/')).toBe('hi/there/123/');
+  });
+
+  test('simpleJoin', async () => {
+    expect(simpleJoin('')).toBe('');
+    expect(simpleJoin('/')).toBe('/');
+    expect(simpleJoin('/', 'foo')).toBe('/foo/');
+    expect(simpleJoin('/', '/foo')).toBe('/foo/');
+    expect(simpleJoin('', 'foo')).toBe('foo/');
+    expect(simpleJoin('', '/foo')).toBe('/foo/');
+    expect(simpleJoin('/', 'foo', 'bar')).toBe('/foo/bar/');
+    expect(simpleJoin('/', '/foo', '/bar')).toBe('/foo/bar/');
+    expect(simpleJoin('/', '/foo/', '/bar')).toBe('/foo/bar/');
+    expect(simpleJoin('/', '/foo/', '/bar/')).toBe('/foo/bar/');
+    expect(simpleJoin('https://example.com/', '/foo/', '/bar/')).toBe('https://example.com/foo/bar/');
+    // expect to create an invalid url.
+    expect(simpleJoin('https://example.com/', 'https://example2.com/', '/bar/')).toBe(
+      'https://example.com/https://example2.com/bar/',
+    );
+  });
+
+  test('queryKeyValue', async () => {
+    expect(queryKeyValue(new URLSearchParams('?id=123'))).toEqual({ id: '123' });
+  });
+});

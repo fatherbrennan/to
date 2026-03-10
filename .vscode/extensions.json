@@ -1,10 +1,15 @@
 {
   "recommendations": [
     "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
     "esbenp.prettier-vscode",
+    "fatherbrennan.lines-status-bar",
+    "github.vscode-github-actions",
     "jock.svg",
-    "ms-azuretools.vscode-containers",
-    "streetsidesoftware.code-spell-checker"
+    "oven.bun-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "svelte.svelte-vscode",
+    "vivaxy.vscode-conventional-commits"
   ],
   "unwantedRecommendations": []
 }
