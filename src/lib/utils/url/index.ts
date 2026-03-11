@@ -6,6 +6,14 @@ type EnsureTrailingSlash<T extends string> = T extends `${infer P}/` ? `${P}/` :
 type HasTrailingQuestionMark<T extends string> = T extends `${string}?` ? true : false;
 type HasTrailingSlash<T extends string> = T extends `${string}/` ? true : false;
 type HasLeadingSlash<T extends string> = T extends `/${string}` ? true : false;
+export type GetContentParam =
+  | URL
+  | {
+      person: string | null;
+      bookString: string | null;
+      chapterString: string | null;
+      pageString: string | null;
+    };
 /** `number` should always be `> 0`. */
 export type GetContent = {
   book: Book | null;
@@ -102,15 +110,24 @@ export const queryKeyValue = <T extends QueryKeyValue>(searchParams: URLSearchPa
 };
 
 /**
- * `/to/<person>/book/1/`
- * `/to/<person>/book/1/chapter/1/`
- * `/to/<person>/book/1/chapter/1/page/1/`
+ * `/to/<person>/book/1`
+ * `/to/<person>/book/1/chapter/1`
+ * `/to/<person>/book/1/chapter/1/page/1`
  */
-export const getContent = (url: URL) => {
-  const { pathname } = url;
+export const getContent = (param: GetContentParam) => {
+  const { person, bookString, chapterString, pageString } = (() => {
+    if (param instanceof URL) {
+      const { pathname } = param;
 
-  const [_match, person, bookString, _, chapterString, __, pageString] =
-    withTrailingSlash(pathname).match(/^.{0,442}\/to\/(.+)\/book\/(\d+)\/(chapter\/(\d+)\/(page\/(\d+)\/)?)?$/m) ?? [];
+      const [_match, person, bookString, _, chapterString, __, pageString] =
+        withTrailingSlash(pathname).match(/^.{0,442}\/to\/(.+)\/book\/(\d+)\/(chapter\/(\d+)\/(page\/(\d+)\/)?)?$/m)
+        ?? [];
+
+      return { bookString, chapterString, pageString, person };
+    }
+
+    return param;
+  })();
 
   const bookNumber = Number(bookString) || null;
   const chapterNumber = Number(chapterString) || null;
@@ -141,3 +158,74 @@ export const getContent = (url: URL) => {
     personName,
   } satisfies GetContent;
 };
+
+/** convert kit `params` object to the shape accepted by `getContent` */
+export const paramsToContentParam = (
+  params: Record<string, string | undefined>
+): GetContentParam => {
+  return {
+    person: params.person ?? null,
+    bookString: params.book ?? null,
+    chapterString: params.chapter ?? null,
+    pageString: params.page ?? null,
+  };
+};
+
+/** list every person identifier available in the content object */
+export const allPersons = (): string[] => Object.keys(content);
+
+/** generate every combination of person+book */
+export const allBooks = (): Array<{ person: string; book: string }> => {
+  const results: Array<{ person: string; book: string }> = [];
+  for (const person of allPersons()) {
+    const books = content[person as keyof Content]?.books ?? [];
+    books.forEach((_, i) => results.push({ person, book: String(i + 1) }));
+  }
+  return results;
+};
+
+/** generate every combination of person+book+chapter */
+export const allChapters = (): Array<{
+  person: string;
+  book: string;
+  chapter: string;
+}> => {
+  const results: Array<{ person: string; book: string; chapter: string }> = [];
+  for (const { person, book } of allBooks()) {
+    const chapters =
+      content[person as keyof Content]?.books[Number(book) - 1]?.chapters ?? [];
+    chapters.forEach((_, j) => results.push({ person, book, chapter: String(j + 1) }));
+  }
+  return results;
+};
+
+/** generate every combination of person+book+chapter+page */
+export const allPages = (): Array<{
+  person: string;
+  book: string;
+  chapter: string;
+  page: string;
+}> => {
+  const results: Array<{
+    person: string;
+    book: string;
+    chapter: string;
+    page: string;
+  }> = [];
+  for (const { person, book, chapter } of allChapters()) {
+    const pages =
+      content[person as keyof Content]?.books[Number(book) - 1]?.chapters[Number(chapter) - 1]?.pages ?? [];
+    pages.forEach((_, k) =>
+      results.push({ person, book, chapter, page: String(k + 1) })
+    );
+  }
+  return results;
+};
+
+export const entriesForPerson = () => allPersons().map(person => ({ person }));
+export const entriesForBook = () => allBooks().map(({ person, book }) => ({ person, book }));
+export const entriesForChapter = () =>
+  allChapters().map(({ person, book, chapter }) => ({ person, book, chapter }));
+export const entriesForPage = () =>
+  allPages().map(({ person, book, chapter, page }) => ({ person, book, chapter, page }));
+

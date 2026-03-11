@@ -1,8 +1,14 @@
 import { describe, expect, test } from 'bun:test';
 import {
+  entriesForBook,
+  entriesForChapter,
+  entriesForPage,
+  entriesForPerson,
+  getContent,
   hasLeadingSlash,
   hasTrailingQuestionMark,
   hasTrailingSlash,
+  paramsToContentParam,
   queryKeyValue,
   simpleJoin,
   withTrailingSlash,
@@ -89,5 +95,56 @@ describe('url utilities', async () => {
 
   test('queryKeyValue', async () => {
     expect(queryKeyValue(new URLSearchParams('?id=123'))).toEqual({ id: '123' });
+  });
+
+  test('paramsToContentParam and getContent', async () => {
+    const params = paramsToContentParam({ person: 'h', book: '1', chapter: '1', page: '1' });
+    const content = getContent(params);
+    expect(content.personName).toBe('h');
+    expect(content.bookNumber).toBe(1);
+    expect(content.chapterNumber).toBe(1);
+    expect(content.pageNumber).toBe(1);
+    expect(content.book?.title).toBeDefined();
+    expect(content.chapter?.pages.length).toBeGreaterThan(0);
+  });
+
+  test('entries generators', async () => {
+    const persons = entriesForPerson();
+    expect(persons).toEqual([{ person: 'h' }, { person: 't' }]);
+
+    const books = entriesForBook();
+    expect(books).toEqual([
+      { person: 'h', book: '1' },
+      { person: 't', book: '1' },
+    ]);
+
+    const chapters = entriesForChapter();
+    expect(chapters).toEqual([
+      { person: 'h', book: '1', chapter: '1' },
+      { person: 't', book: '1', chapter: '1' },
+    ]);
+
+    const pages = entriesForPage();
+    expect(pages).toEqual([
+      { person: 'h', book: '1', chapter: '1', page: '1' },
+      { person: 'h', book: '1', chapter: '1', page: '2' },
+      { person: 'h', book: '1', chapter: '1', page: '3' },
+      { person: 'h', book: '1', chapter: '1', page: '4' },
+      { person: 'h', book: '1', chapter: '1', page: '5' },
+      { person: 'h', book: '1', chapter: '1', page: '6' },
+      { person: 'h', book: '1', chapter: '1', page: '7' },
+      { person: 'h', book: '1', chapter: '1', page: '8' },
+      { person: 'h', book: '1', chapter: '1', page: '9' },
+      { person: 'h', book: '1', chapter: '1', page: '10' },
+      { person: 'h', book: '1', chapter: '1', page: '11' },
+      { person: 't', book: '1', chapter: '1', page: '1' },
+      { person: 't', book: '1', chapter: '1', page: '2' },
+      { person: 't', book: '1', chapter: '1', page: '3' },
+      { person: 't', book: '1', chapter: '1', page: '4' },
+      { person: 't', book: '1', chapter: '1', page: '5' },
+      { person: 't', book: '1', chapter: '1', page: '6' },
+      { person: 't', book: '1', chapter: '1', page: '7' },
+      { person: 't', book: '1', chapter: '1', page: '8' },
+    ]);
   });
 });
