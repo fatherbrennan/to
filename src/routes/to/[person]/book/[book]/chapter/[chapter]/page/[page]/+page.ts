@@ -1,9 +1,9 @@
+import { entriesForPage, getContent } from '$lib/utils/url';
 import type { PageLoad } from './$types';
-import { getContent, paramsToContentParam, entriesForPage } from '$lib/utils/url';
 
 export const entries = entriesForPage;
 
 export const load: PageLoad = ({ params }) => {
-  const content = getContent(paramsToContentParam(params));
+  const content = getContent(params);
   return { content };
 };

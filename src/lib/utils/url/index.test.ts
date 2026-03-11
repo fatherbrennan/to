@@ -8,7 +8,6 @@ import {
   hasLeadingSlash,
   hasTrailingQuestionMark,
   hasTrailingSlash,
-  paramsToContentParam,
   queryKeyValue,
   simpleJoin,
   withTrailingSlash,
@@ -97,8 +96,8 @@ describe('url utilities', async () => {
     expect(queryKeyValue(new URLSearchParams('?id=123'))).toEqual({ id: '123' });
   });
 
-  test('paramsToContentParam and getContent', async () => {
-    const params = paramsToContentParam({ person: 'h', book: '1', chapter: '1', page: '1' });
+  test('getContent', async () => {
+    const params = { person: 'h', book: '1', chapter: '1', page: '1' };
     const content = getContent(params);
     expect(content.personName).toBe('h');
     expect(content.bookNumber).toBe(1);

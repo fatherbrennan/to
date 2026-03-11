@@ -10,9 +10,9 @@ export type GetContentParam =
   | URL
   | {
       person: string | null;
-      bookString: string | null;
-      chapterString: string | null;
-      pageString: string | null;
+      book?: string | null;
+      chapter?: string | null;
+      page?: string | null;
     };
 /** `number` should always be `> 0`. */
 export type GetContent = {
@@ -126,7 +126,7 @@ export const getContent = (param: GetContentParam) => {
       return { bookString, chapterString, pageString, person };
     }
 
-    return param;
+    return { bookString: param.book, chapterString: param.chapter, pageString: param.page, person: param.person };
   })();
 
   const bookNumber = Number(bookString) || null;
@@ -157,18 +157,6 @@ export const getContent = (param: GetContentParam) => {
     pages,
     personName,
   } satisfies GetContent;
-};
-
-/** convert kit `params` object to the shape accepted by `getContent` */
-export const paramsToContentParam = (
-  params: Record<string, string | undefined>
-): GetContentParam => {
-  return {
-    person: params.person ?? null,
-    bookString: params.book ?? null,
-    chapterString: params.chapter ?? null,
-    pageString: params.page ?? null,
-  };
 };
 
 /** list every person identifier available in the content object */
