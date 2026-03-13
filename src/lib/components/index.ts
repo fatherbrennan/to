@@ -7,5 +7,6 @@ import Header from './header/index.svelte';
 import Heading from './heading/index.svelte';
 import Main from './main/index.svelte';
 import PageTouchNav from './page-touch-nav/index.svelte';
+import ProgressBar from './progress-bar/index.svelte';
 
-export { Async, Field, Footer, Form, Header, Heading, Main, PageTouchNav, Submit };
+export { Async, Field, Footer, Form, Header, Heading, Main, PageTouchNav, ProgressBar, Submit };

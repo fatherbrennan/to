@@ -3,6 +3,7 @@
   import { cls } from '$lib/utils/cls';
   import type { GetContent } from '$lib/utils/url';
   import type { Snippet } from 'svelte';
+  import { ProgressBar } from '..';
 
   const { content, children }: { content: GetContent; children?: Snippet } = $props();
 
@@ -135,21 +136,11 @@
       </div>
     </div>
 
-    <div class="flex flex-col w-full gap-y-2 px-2 pb-2">
-      <div class="flex flex-row flex-nowrap gap-x-2">
-        {#each Array(chapter.pages.length) as _, pageIndex}
-          <span class={cls('h-0.5 grow', pageIndex === c.pageIndex ? 'bg-[#d9e7d3]' : 'bg-[#a2ba86]')}></span>
-        {/each}
-      </div>
-      <div class="flex flex-row flex-nowrap gap-x-2">
-        {#each Array(book.chapters.length) as _, chapterIndex}
-          <span class={cls('h-0.5 grow', chapterIndex === c.chapterIndex ? 'bg-[#d9e7d3]' : 'bg-[#a2ba86]')}></span>
-        {/each}
-      </div>
-      <div class="flex flex-row flex-nowrap gap-x-2">
-        {#each Array(content.personContent.books.length) as _, bookIndex}
-          <span class={cls('h-0.5 grow', bookIndex === content.bookIndex ? 'bg-[#d9e7d3]' : 'bg-[#a2ba86]')}></span>
-        {/each}
+    <div class="flex flex-row flex-nowrap justify-center px-4 pb-2">
+      <div class="flex flex-col w-full gap-y-2 sm:w-9/12">
+        <ProgressBar count={chapter.pages.length} active={c.pageIndex} />
+        <ProgressBar count={book.chapters.length} active={c.chapterIndex} />
+        <ProgressBar count={c.personContent.books.length} active={c.bookIndex} />
       </div>
     </div>
   {/if}
