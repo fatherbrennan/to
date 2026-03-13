@@ -8,7 +8,9 @@
 <PageTouchNav {content}>
   {#if content.personName === 'h'}
     {#if content.bookNumber === 2 && content.chapterNumber === 1 && content.pageNumber === 1}
-      <img src={asset('/assets/leonardo-dicaprio-dm.png')} alt="leonardo dicaprio dm" class="my-auto" />
+      <div class="size-full flex">
+        <img src={asset('/assets/leonardo-dicaprio-dm.png')} alt="dm from leonardo dicaprio" class="w-full h-auto object-contain" />
+      </div>
     {/if}
   {/if}
 </PageTouchNav>

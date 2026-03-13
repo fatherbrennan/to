@@ -111,36 +111,33 @@
     {@const chapter = book.chapters[c.chapterIndex]}
     {@const page = chapter.pages[c.pageIndex]}
 
-    <div class="absolute top-0 left-0 w-full">
-      <div class="p-2 text-sm sm:text-lg">
-        <p>
-          &gt; to <strong>{content.personName}</strong>
-        </p>
-        <p>&gt; {book.title}</p>
-        <p>&gt; {chapter.title}</p>
-        <p>&gt; {page.title}</p>
+    <div class="flex flex-col flex-nowrap grow gap-y-2 size-full p-2">
+      <div class="flex">
+        <p>to <strong>{content.personName}</strong></p>
       </div>
-    </div>
 
-    <div class="size-full flex flex-col gap-2 p-2">
-      <div class="bg-[#d9e7d3] mx-auto my-auto p-6 w-9/12 h-8/12 flex flex-col gap-2 rounded shadow-xs text-sm sm:text-base sm:p-8">
-        {@render children?.()}
+      <div class="flex grow overflow-scroll">
+        <div class="size-full">
+          <div class="flex flex-col flex-nowrap bg-[#d9e7d3] rounded-2xl p-2">
+            {@render children?.()}
 
-        {#each page.content as contentItem, contentItemIndex}
-          <div>
-            <p>
-              {contentItem}{#if page.content.length === contentItemIndex + 1}<span class="animate-[blink_1s_steps(1)_infinite]">&#x0332;</span>{/if}
-            </p>
+            {#each page.content as contentItem, contentItemIndex}
+              <div>
+                <p>
+                  {contentItem}{#if page.content.length === contentItemIndex + 1}<span class="animate-[blink_1s_steps(1)_infinite]">&#x0332;</span>{/if}
+                </p>
+              </div>
+            {/each}
           </div>
-        {/each}
+        </div>
       </div>
-    </div>
 
-    <div class="flex flex-row flex-nowrap justify-center px-4 pb-2">
-      <div class="flex flex-col w-full gap-y-2 sm:w-9/12">
-        <ProgressBar count={chapter.pages.length} active={c.pageIndex} />
-        <ProgressBar count={book.chapters.length} active={c.chapterIndex} />
-        <ProgressBar count={c.personContent.books.length} active={c.bookIndex} />
+      <div class="flex justify-center">
+        <div class="flex flex-col flex-nowrap w-full gap-y-2 sm:w-6/12 md:w-4/12 lg:w-3/12 xl:w-2/12">
+          <ProgressBar count={chapter.pages.length} active={c.pageIndex} />
+          <ProgressBar count={book.chapters.length} active={c.chapterIndex} />
+          <ProgressBar count={c.personContent.books.length} active={c.bookIndex} />
+        </div>
       </div>
     </div>
   {/if}
@@ -150,3 +147,4 @@
 <!-- color: #a2ba86 -->
 <!-- color: #d9e7d3 -->
 <!-- color: #2f2f2f -->
+<!-- bg-[#d9e7d3] rounded-2xl -->
