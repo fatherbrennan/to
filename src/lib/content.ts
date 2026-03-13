@@ -71,7 +71,20 @@ export const content = {
         chapters: [
           {
             pages: [
-              { content: ['hehe.'], title: '' }
+              { content: [
+                'hehe.',
+                'it is your birthday today!',
+                'you have reached a milestone in your life in age, but much more than that...'
+              ], title: '' },
+              { content: [
+                ''
+              ], title: '' }
+            ],
+            title: 'a very happy birfay!'
+          },
+          {
+            pages: [
+              { content: [''], title: '' }
             ],
             title: '19'
           },
