@@ -1,1 +1,0 @@
-import{_ as a}from"./q-D_rSgI6P.js";import{n as i,a as s}from"./q-BJg_Cf3y.js";import{o,O as t}from"./q-CwDYXaZg.js";import{g as n}from"./q-DMpd4Jfq.js";const{description:e,title:r}=n("h"),c={meta:[{content:e,name:"description"},o(t.Title,r),o(t.Description,e)],title:r},f=i(s(()=>a(()=>import("./q-C8OylFzF.js"),[]),"s_MoLdHDCMBr4"));export{f as default,c as head};

@@ -1,1 +1,0 @@
-import{H as s,M as n,F as r}from"./q-IYewzq8u.js";import{I as e,A as l,s as a}from"./q-BJg_Cf3y.js";const i=()=>e("div",null,{class:"h-screen-h-full flex flex-col"},[l(s,null,3,"SX_0"),l(n,{children:l(a,null,3,"SX_1")},1,"SX_2"),l(r,null,3,"SX_3")],1,"SX_4");export{i as s_qVG7tl92lpE};

@@ -1,1 +1,0 @@
-import{_ as o}from"./q-D_rSgI6P.js";import{v as r}from"./q-BJg_Cf3y.js";import{x as l}from"./q-BJg_Cf3y.js";const n=async()=>{const[t]=r();t.isSmallDisplay&&(await o(async()=>{const{default:a}=await import("./q-CVAF4ysG.js").then(e=>e.e);return{default:a}},[])).default.init()};export{l as _hW,n as s_HqGt7wxkDNs};

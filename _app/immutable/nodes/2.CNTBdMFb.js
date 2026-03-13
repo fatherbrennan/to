@@ -1,0 +1,1 @@
+import{t as r,a}from"../chunks/BUwlI9P4.js";import{n as p}from"../chunks/CYFiXhKn.js";import"../chunks/PZidI9KZ.js";import"../chunks/Dg8vWBi3.js";import{H as m}from"../chunks/qHUPk6Tg.js";function d(t){m(t,{level:1,children:(o,n)=>{p();var e=r("to");a(o,e)},$$slots:{default:!0}})}export{d as component};

@@ -1,1 +1,0 @@
-import{_ as a}from"./q-D_rSgI6P.js";import{n as i,a as n}from"./q-BJg_Cf3y.js";import{A as r,o as t,O as e}from"./q-CwDYXaZg.js";const o=r,s="TODO: Needs a description",d={meta:[{content:s,name:"description"},t(e.Title,o),t(e.Description,s)],title:o},m=i(n(()=>a(()=>import("./q-BnKjPL1i.js"),[]),"s_e0X7nTyLlk0"));export{m as default,d as head};
