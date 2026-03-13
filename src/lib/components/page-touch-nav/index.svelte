@@ -111,14 +111,33 @@
     {@const chapter = book.chapters[c.chapterIndex]}
     {@const page = chapter.pages[c.pageIndex]}
 
-    <div class="flex flex-col flex-nowrap grow gap-y-2 size-full p-2">
+    <div class="flex flex-col flex-nowrap grow gap-y-8 size-full p-2">
       <div class="flex">
-        <p>to <strong>{content.personName}</strong></p>
+        <table class="text-xs [&_th]:text-left [&_th]:font-normal [&_th]:pr-2">
+          <tbody>
+            <tr>
+              <th>[to]</th>
+              <td><strong>{content.personName}</strong></td>
+            </tr>
+            <tr>
+              <th>[book]</th>
+              <td><strong>{book.title || content.bookNumber}</strong></td>
+            </tr>
+            <tr>
+              <th>[chapter]</th>
+              <td><strong>{chapter.title || content.chapterNumber}</strong></td>
+            </tr>
+            <tr>
+              <th>[page]</th>
+              <td><strong>{page.title || content.pageNumber}</strong></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="flex grow overflow-scroll">
         <div class="size-full">
-          <div class="flex flex-col flex-nowrap bg-[#d9e7d3] rounded-2xl p-2">
+          <div class="flex flex-col flex-nowrap bg-[#d9e7d3] rounded-2xl p-4 text-sm">
             {@render children?.()}
 
             {#each page.content as contentItem, contentItemIndex}
