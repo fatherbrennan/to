@@ -1,7 +1,7 @@
 <script lang="ts">
-let { children } = $props();
+  let { children } = $props();
 </script>
 
-<main>
+<main class="grow min-h-main">
   {@render children?.()}
 </main>

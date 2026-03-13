@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta content="@fatherbrennan" name="author" />
-    <meta content="index, follow" name="robots" />
+    <meta content="noindex, nofollow" name="robots" />
+    <meta content="#92ae87" name="theme-color" />
     <meta
       content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover,user-scalable=no"
       name="viewport"
@@ -16,11 +17,7 @@
     />
     %sveltekit.head%
   </head>
-  <body
-    data-sveltekit-preload-data="hover"
-    class="flex flex-col font-mono"
-    lang="en"
-  >
+  <body data-sveltekit-preload-data="hover" lang="en">
     <div class="h-screen-h-full flex flex-col bg-[#92ae87]">
       %sveltekit.body%
     </div>

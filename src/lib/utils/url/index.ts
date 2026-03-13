@@ -1,4 +1,4 @@
-import type { Book, Chapter, Content, Page } from '$lib/content';
+import type { Content, PersonContent } from '$lib/content';
 import { content } from '$lib/content';
 import { sortStringAsc } from '../sort';
 
@@ -6,28 +6,22 @@ type EnsureTrailingSlash<T extends string> = T extends `${infer P}/` ? `${P}/` :
 type HasTrailingQuestionMark<T extends string> = T extends `${string}?` ? true : false;
 type HasTrailingSlash<T extends string> = T extends `${string}/` ? true : false;
 type HasLeadingSlash<T extends string> = T extends `/${string}` ? true : false;
-export type GetContentParam =
-  | URL
-  | {
-      person: string | null;
-      book?: string | null;
-      chapter?: string | null;
-      page?: string | null;
-    };
+export type GetContentParam = {
+  person: string | null;
+  book?: string | null;
+  chapter?: string | null;
+  page?: string | null;
+};
 /** `number` should always be `> 0`. */
 export type GetContent = {
-  book: Book | null;
   bookIndex: number | null;
   bookNumber: number | null;
-  chapter: Chapter | null;
   chapterIndex: number | null;
   chapterNumber: number | null;
-  chapters: Chapter[] | null;
-  page: Page | null;
   pageIndex: number | null;
   pageNumber: number | null;
-  pages: Page[] | null;
   personName: string | null;
+  personContent: PersonContent | null;
 };
 type QueryFnParamValue = string | number | boolean | undefined;
 type QueryFnParam = Record<string, QueryFnParamValue>;
@@ -116,16 +110,6 @@ export const queryKeyValue = <T extends QueryKeyValue>(searchParams: URLSearchPa
  */
 export const getContent = (param: GetContentParam) => {
   const { person, bookString, chapterString, pageString } = (() => {
-    if (param instanceof URL) {
-      const { pathname } = param;
-
-      const [_match, person, bookString, _, chapterString, __, pageString] =
-        withTrailingSlash(pathname).match(/^.{0,442}\/to\/(.+)\/book\/(\d+)\/(chapter\/(\d+)\/(page\/(\d+)\/)?)?$/m)
-        ?? [];
-
-      return { bookString, chapterString, pageString, person };
-    }
-
     return { bookString: param.book, chapterString: param.chapter, pageString: param.page, person: param.person };
   })();
 
@@ -134,28 +118,24 @@ export const getContent = (param: GetContentParam) => {
   const pageNumber = Number(pageString) || null;
   const personName = person || null;
   const bookIndex = bookNumber !== null ? bookNumber - 1 : null;
-  const book =
-    (personName !== null && bookIndex !== null ? content[personName as keyof Content]?.books[bookIndex] : null) ?? null;
+  const books = personName !== null ? content[personName as keyof Content]?.books : null;
+  const book = (books !== null && bookIndex !== null ? books[bookIndex] : null) ?? null;
   const chapterIndex = chapterNumber !== null ? chapterNumber - 1 : null;
   const chapters = book !== null ? book.chapters : null;
   const chapter = (chapters !== null && chapterIndex !== null ? chapters[chapterIndex] : null) ?? null;
   const pageIndex = pageNumber !== null ? pageNumber - 1 : null;
   const pages = chapter !== null ? chapter.pages : null;
-  const page = (pages !== null && pageIndex !== null ? pages[pageIndex] : null) ?? null;
+  const personContent = personName !== null ? content[personName as keyof Content] : null;
 
   return {
-    book,
     bookIndex,
     bookNumber,
-    chapter,
     chapterIndex,
     chapterNumber,
-    chapters,
-    page,
     pageIndex,
     pageNumber,
-    pages,
     personName,
+    personContent,
   } satisfies GetContent;
 };
 
@@ -216,4 +196,3 @@ export const entriesForChapter = () =>
   allChapters().map(({ person, book, chapter }) => ({ person, book, chapter }));
 export const entriesForPage = () =>
   allPages().map(({ person, book, chapter, page }) => ({ person, book, chapter, page }));
-

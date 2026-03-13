@@ -1,7 +1,3 @@
-<script lang="ts">
-  import { APP_NAME } from '$lib/constants';
-</script>
+<script lang="ts"></script>
 
-<header>
-  <h1>{APP_NAME}</h1>
-</header>
+<header class="h-header"></header>

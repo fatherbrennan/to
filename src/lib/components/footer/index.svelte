@@ -1,5 +1,5 @@
 <script lang="ts"></script>
 
-<footer>
-  <a href="https://github.com/fatherbrennan/beelep" rel="noopener noreferrer" target="_blank">fatherbrennan</a>
+<footer class="text-center h-footer flex flex-col justify-center items-center">
+  <a class="text-xs sm:text-base" href="https://github.com/fatherbrennan/to" rel="noopener noreferrer" target="_blank"> from b. </a>
 </footer>

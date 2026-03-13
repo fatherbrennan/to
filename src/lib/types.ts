@@ -31,6 +31,8 @@ export type AttributesOf<T extends Element> = Omit<HTMLAttributes<T>, 'class'> &
 export type KeyLike = string | number | symbol;
 /** basic plain object type. */
 export type PlainObject<T> = { [key: string]: T };
+/** make all keys in object type non-nullable. */
+export type NonNullableObject<T> = { [key in keyof T]: NonNullable<T[key]> };
 /** from T, pick a set of properties whose keys are in the union K to make optional. */
 export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 /** from T, pick a set of properties whose keys are in the union K to make required. */
