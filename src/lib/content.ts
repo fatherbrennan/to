@@ -71,7 +71,7 @@ export const content = {
         chapters: [
           {
             pages: [
-              { content: [''], title: '' }
+              { content: ['hehe.'], title: '' }
             ],
             title: '19'
           },

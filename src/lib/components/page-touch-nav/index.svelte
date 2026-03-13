@@ -135,9 +135,9 @@
         </table>
       </div>
 
-      <div class="flex grow overflow-scroll">
-        <div class="size-full">
-          <div class="flex flex-col flex-nowrap bg-[#d9e7d3] rounded-2xl p-4 text-sm">
+      <div class="flex grow overflow-auto">
+        <div class="size-full p-2">
+          <div class="flex flex-col flex-nowrap gap-y-4 mx-auto bg-[#d9e7d3] rounded-2xl p-4 text-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-3xl 2xl:max-w-7xl">
             {@render children?.()}
 
             {#each page.content as contentItem, contentItemIndex}
