@@ -71,64 +71,372 @@ export const content = {
         chapters: [
           {
             pages: [
-              { content: [
-                'hehe.',
-                'it is your birthday today!',
-                'you have reached a milestone in your life in age, but much more than that...'
-              ], title: '' },
-              { content: [
-                ''
-              ], title: '' }
+              { content: ['noooooo.'], title: '' },
+              {
+                content: [
+                  'it is your birthday today!',
+                  'you have reached a milestone in your life in age, but much more than that...',
+                  'looking back on just the last five years of your life, you have reached other impressive milestones and goals that once seemed at one point out of reach.',
+                ],
+                title: '',
+              },
+              {
+                content: ['and they should not go unnoticed.'],
+                title: '',
+              },
+              {
+                content: [
+                  'i think you should be happy with how far you have come.',
+                  'i certainly am happy for you, watching you grow and succeed.',
+                ],
+                title: '',
+              },
             ],
-            title: 'a very happy birfay!'
+            title: 'a very happy birfay!',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'you have a job at a pet store.',
+                  'you know now it is not what you want to do forever, but it is fulfilling in a way.',
+                  'you like the animals you work with, but the place and people can get a bit much at times.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'and so, some aspects of your job are enjoyable, but not everything makes you smile;',
+                  'but for now it is okay.',
+                  'there has not been much thought into your career, maybe it has not crossed your mind much yet.',
+                  'but for now it is something to do, and it pays for your fun activities.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'you are working through your personal life, you are finding spots for your friends to fit.',
+                  'some spots have solidified, and some still empty.',
+                  'there used to be less empty spots, but you are making progress.',
+                  'but progress does not come overnight, and you know that, but it still hurts.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'but for the most part, life is just kind of working out for you.',
+                  'the money is enough for you to do what you want to do.',
+                  'those new shoes, those new clothes, those many trips to fill your stummy.',
+                ],
+                title: '',
+              },
             ],
-            title: '19'
+            title: '19',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'so now: you have a job, you have friends, you have a home.',
+                  'it is all there, but not really how you imagined it would be.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'you start to see that the pet store is not where you want to spend your time.',
+                  'you want something different, something more aligned with what you like.',
+                ],
+                title: '',
+              },
+              {
+                content: ['animals.'],
+                title: '',
+              },
+              {
+                content: [
+                  'you started to look for new jobs, and working in a vet seemed far fetched, but helping animals sounded pretty damn good.',
+                  'you started applying, there was no real limit location or place; anything to get a foot in a door...',
+                  'this knowing or unknowingly became a pivotal reprogramming in your mindset where you began to think of work as your career.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'with no luck, only determination and a need to find better for yourself, you got a position working at a vet!',
+                  '...',
+                  'i think everyone who knew you, was so proud of you.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'it is all so new to you, but you are excited for what lies ahead.',
+                  'for now you are making an effort to fit in, learn and grow into your new role.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'you are still trying to fill some spots in your personal life, friends are still a bit of a struggle, but you have managed this far.',
+                  'you have not given up yet, but you thought it would be easier than this;',
+                  'it just, kind of sucks.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'the vet is slightly less from a monetary standpoint, but you are enjoying it.',
+                  'and besides, everything you want to buy is within reach.',
+                ],
+                title: '',
+              },
             ],
-            title: '20'
+            title: '20',
           },
           {
             pages: [
-              { content: [''], title: '' },
-              { content: [''], title: '' },
-              { content: [''], title: '' }
+              {
+                content: [
+                  'you are at the vet still, and you are enjoying the change of scenery.',
+                  'you grow attachments to the animals, and you are feeling fulfilled that you are making a positive difference for them in their short stay.',
+                  'as a bonus, you are learning things about animals and their care that you can apply to your own pets.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'you realise you have a real passion for seeing the direct affect of caring for animals.',
+                  'and you are so good at it.',
+                  'you decide to apply to foster kittens.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'the first batch is hard, and many batches after are hard too.',
+                  'but you were never completely deterred, and you continued to make the lives of every kitten you fostered better.',
+                  'it was draining, but you got so much out of it.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'it is still a little hard to fill those spots, and maybe that was what kittens were meant for.',
+                  'but things for now are looking up, you have been filling your time with things that you enjoy.',
+                  'this will do for a while.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'it is not full time work yet, but money is still coming in.',
+                  'some thoughts about buying a house have set in, but you are not sure yet.',
+                  'there is so much that goes into that, for now the most you know that money is good for that, this might even motivate you on your way to work;',
+                  'you even have some big weeks coming up, so that might be good.',
+                  'maybe a small saving account will do, for the house.',
+                ],
+                title: '',
+              },
             ],
-            title: '21'
+            title: '21',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'the vet shifts have now picked up and you are a valuable member of the team.',
+                  'you are even getting a solid amount of hours!',
+                  'you are for the most part enjoying what you are doing, and you get to learn new things here and there, but you are noticing that this aspect of your life is taking up more time.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'you might have realised by now that working more hours, especially on a bad day, feels like less time for yourself, but for the most part you are still enjoying what you do.',
+                  'it is still new enough, and you still have more to learn, but you are getting there.',
+                  'it is all just a thought for now.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'one thing you really start to notice, is that your role is really limiting your interaction with other people; you have almost a lone ranger position.',
+                  'there are some major benefits to this, but it is also isolating.',
+                  'and you have noticed other people that started the same time as you, seem to have fit in with their own teams much better... probably because they are not in your role.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'maybe both these thoughts, and maybe many more, had a weight on your decision;',
+                  'but you decide to ask to stop moving around so much at work, you want to not be so isolated;',
+                  'also while you are at it, you think more about what you like: animals; maybe not even just sick animals, and maybe not-so domesticated animals too.',
+                  'it is a looong shot, but a zoo keeper would be a pretty damn dream job for you.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'so you enroll in a wildlife course, this is a course required to become a zoo keeper, and it just so happens you can do it in the city.',
+                  'you were trying to not be hopeful, or excited, but you are.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'a house is still a bit out of reach, but money is still going into the savings account.',
+                  'maybe just not as much as i would like, but the thought is there.',
+                ],
+                title: '',
+              },
             ],
-            title: '22'
+            title: '22',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'you are now getting more predictable timetable and shift location, even with some more hours.',
+                  'so now you are seeing more of the same people, and you are getting to know them better.',
+                  'you also get to know the animals better, even there owners (this is not so much of a positive though).',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'did i mention that you got accepted into the wildlife course?',
+                  'well you did!',
+                  'you are doing great with it, you are finding it super interesting, and even liking some people there.',
+                ],
+                title: '',
+              },
+              {
+                content: ['those spots are finally starting to fill up.'],
+                title: '',
+              },
+              {
+                content: [
+                  'another bonus is your course requires you to have placement in a zoo, so you can have a go at your dream job and see if it is all you imagined it to be...',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'spoiler; it is.',
+                  'but you start to know more about the field, and how it works, and the animals, and also another zoo, a bit further away which sounds like your ideal place...',
+                  'you have narrowed your dream career to a single place!',
+                  'but for now you will take what you can get.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'so now you are now juggling study and the vet, but you are doing great.',
+                  'you are even able to make some more frequent deposits into that bank account!',
+                ],
+                title: '',
+              },
             ],
-            title: '23'
+            title: '23',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'after placement, you have become very comfortable and confident with your abilities and knowledge.',
+                  'you think to yourself that everything always seemed like a long shot, but you got there in the end, so what is one more?',
+                  'you start applying for positions at the zoo.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'to simplify a long, driven, effort-intensive process:',
+                  'you got a casual position at the zoo of your dreams!',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'in some time, you decided to give this your full priority',
+                  'the vet is now in the background, and you are picking up every single shift that you can at the dream zoo.',
+                  'the zoo is not instantly rewarding in permanent hours, but the animals, new friends, and animals are.',
+                  'it is a great effort for you to get to the zoo each time, it is not close you know, but you are so driven, and this is everything you have been working toward.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'saying goodbye to the vet became harder than it should have been due to the friends you have made, but that is a blessing to feel that way, and those friendships became more permanent than a location anyway; so you still see them.',
+                  'you see them often now, and there is even a mix with different workplace friends.',
+                  'it all just seems to be falling into place, and it is right to feel that way.',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'so much has happened in this time it likely feels like more than a single year has passed;',
+                  'but at 24 you are now in your dream career, you have an abundance of friends, a very solid support system around you with people that care about you and your success.',
+                  'there is still the money issue though, and that house that keeps creeping in the back of your mind...',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'well on that, i must have not mentioned yet that you have been saving, and even budgeting for months now;',
+                  'you have pulled yourself up when you have seen yourself spending more than you should have, you look at prices, you even have a positive net worth now!',
+                  'i should also mention that this house thing is now not some distant dream, but a possibility that is within reach.',
+                  'even more impressive, you have immersed yourself in the real estate (ew) field, things are not foreign to you.',
+                  'you have been actively looking, and have made it so far into the process and just missing out by a hair!',
+                ],
+                title: '',
+              },
+              {
+                content: [
+                  'nothing has grabbed yet, but that is how it is supposed to be.',
+                  'in five years, so much has changed, so many things that seemed distant and unachievable are now something you can so easily take for granted.',
+                  'but so much can happen in the next five years, and who knows what will be possible then.',
+                ],
+                title: '',
+              },
+              {
+                content: ['and i look forward to that.'],
+                title: '',
+              },
+              {
+                content: [
+                  'also side note: the big kitties were purring when they told me they love when you spend the day with them.',
+                ],
+                title: '',
+              },
             ],
-            title: '24'
+            title: '24',
           },
           {
             pages: [
-              { content: [''], title: '' }
+              {
+                content: [
+                  'you have made it so far, you are doing amazing.',
+                  'it is not luck; it is well deserved.',
+                  'you have so many people proud to watch you grow the way you have.',
+                ],
+                title: '',
+              },
+              {
+                content: ['i will be watching you from by your side, the best seat in the house.'],
+                title: '',
+              },
+              {
+                content: ['i am so very proud of you.'],
+                title: '',
+              },
             ],
-            title: '25'
+            title: '25',
           },
         ],
-        title: '25'
-      }
+        title: '25',
+      },
     ],
     name: 'h',
   },
