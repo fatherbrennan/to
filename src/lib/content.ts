@@ -76,7 +76,7 @@ export const content = {
                 content: [
                   'it is your birthday today!',
                   'you have reached a milestone in your life in age, but much more than that...',
-                  'looking back on just the last five years of your life, you have reached other impressive milestones and goals that once seemed at one point out of reach.',
+                  'looking back on just the last six years of your life, you have reached other impressive milestones and goals that once seemed at one point out of reach.',
                 ],
                 title: '',
               },
@@ -395,8 +395,8 @@ export const content = {
               {
                 content: [
                   'nothing has grabbed yet, but that is how it is supposed to be.',
-                  'in five years, so much has changed, so many things that seemed distant and unachievable are now something you can so easily take for granted.',
-                  'but so much can happen in the next five years, and who knows what will be possible then.',
+                  'in six years, so much has changed, so many things that seemed distant and unachievable are now something you can so easily take for granted.',
+                  'but so much can happen in the next six years, and who knows what will be possible then.',
                 ],
                 title: '',
               },
